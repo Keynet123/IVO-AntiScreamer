@@ -1,0 +1,22 @@
+﻿<Window x:Class="VolumeMeter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Громкость системы" Height="150" Width="300">
+    <Grid>
+        <Label x:Name="VolumeLabel"
+               FontSize="15"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Content="Громкость: 0%" />
+        <Label x:Name="Value"
+           FontSize="15"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           Content="Громкость в дб:" Margin="0,47,0,0" />
+        <Label x:Name="Status"
+           FontSize="15"
+           HorizontalAlignment="Center"
+           VerticalAlignment="Top"
+           Content="Статус:" Margin="0,82,0,0" />
+    </Grid>
+</Window>
