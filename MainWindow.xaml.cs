@@ -18,6 +18,8 @@ namespace VolumeMeter
 
         [DllImport("ntdll.dll", SetLastError = true)]
         static extern int NtSuspendProcess(IntPtr processHandle);
+        [DllImport("ntdll.dll", SetLastError = true)]
+        static extern int NtResumeProcess(IntPtr processHandle);
         public MainWindow()
         {
             InitializeComponent();
@@ -38,6 +40,20 @@ namespace VolumeMeter
             catch (Exception ex)
             {
                 Console.WriteLine($"⚠️ Ошибка заморозки: {ex.Message}");
+            }
+        }
+
+        public void ResumeProcess(int pid)
+        {
+            try
+            {
+                var process = Process.GetProcessById(pid);
+                NtResumeProcess(process.Handle);
+                Console.WriteLine($"▶️ Разморожен процесс: {process.ProcessName} (PID: {pid})");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"⚠️ Ошибка разморозки: {ex.Message}");
             }
         }
 
@@ -94,6 +110,7 @@ namespace VolumeMeter
                                 if (pid != currentPid)
                                 {
                                     SuspendProcess(pid);
+                                    ShowMessage(pid);
                                 }
 
                             }
@@ -107,6 +124,21 @@ namespace VolumeMeter
 
             capture.StartRecording();
             Status.Content = "Запись начата";
+        }
+
+        private void ShowMessage(int pid)
+        {
+            string messageBoxText = "Заморожено!";
+            var process = Process.GetProcessById(pid);
+            string caption = $"Заморожено приложение {process.ProcessName} ({pid})! Разморозить?";
+            MessageBoxButton button = MessageBoxButton.YesNoCancel;
+            MessageBoxImage icon = MessageBoxImage.Warning;
+            MessageBoxResult result;
+
+            result = MessageBox.Show(caption, messageBoxText, button, icon);
+            if (result == MessageBoxResult.Yes) {
+                ResumeProcess(pid);
+            }
         }
 
         private void Window_Closed(object sender, EventArgs e)
