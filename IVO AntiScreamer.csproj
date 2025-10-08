@@ -8,10 +8,37 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
     <PlatformTarget>x64</PlatformTarget>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fonts\AnonymousPro-Bold.ttf" />
+    <None Remove="Fonts\AnonymousPro-Regular.ttf" />
+    <None Remove="Fonts\JetBrainsMono-Light.ttf" />
+    <None Remove="Fonts\Roboto-Black.ttf" />
+    <None Remove="Fonts\Roboto-Bold.ttf" />
+    <None Remove="Fonts\Roboto_Condensed-Black.ttf" />
+    <None Remove="Fonts\Roboto_Condensed-Medium.ttf" />
+    <None Remove="Fonts\Roboto_Condensed-Regular.ttf" />
+    <None Remove="Fonts\Roboto_Condensed-SemiBold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="SkiaSharp" Version="3.119.1" />
+    <PackageReference Include="SkiaSharp.Views.WPF" Version="3.119.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\AnonymousPro-Bold.ttf" />
+    <Resource Include="Fonts\AnonymousPro-Regular.ttf" />
+    <Resource Include="Fonts\JetBrainsMono-Light.ttf" />
+    <Resource Include="Fonts\Roboto-Black.ttf" />
+    <Resource Include="Fonts\Roboto-Bold.ttf" />
+    <Resource Include="Fonts\Roboto_Condensed-Black.ttf" />
+    <Resource Include="Fonts\Roboto_Condensed-Medium.ttf" />
+    <Resource Include="Fonts\Roboto_Condensed-Regular.ttf" />
+    <Resource Include="Fonts\Roboto_Condensed-SemiBold.ttf" />
   </ItemGroup>
 
 </Project>
