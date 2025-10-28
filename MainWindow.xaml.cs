@@ -67,7 +67,22 @@ namespace IVOAntiScreamer
             Loaded += Window_Loaded;
         }
 
-
+        public void onMenuButtonChange(int id)
+        {
+            if (id == 1)
+            {
+                MainGrid.Visibility = Visibility.Visible;
+                SafeGrid.Visibility = Visibility.Hidden;
+                SafeButton.IsEnabled = true;
+                MenuButton.IsEnabled = false;
+            }
+            else if (id == 2) {
+                MainGrid.Visibility = Visibility.Hidden;
+                SafeGrid.Visibility = Visibility.Visible;
+                SafeButton.IsEnabled = false;
+                MenuButton.IsEnabled = true;
+            }
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -434,7 +449,15 @@ namespace IVOAntiScreamer
             }
         }
 
+        private void SafeButton_Click(object sender, RoutedEventArgs e)
+        {
+            onMenuButtonChange(2);
+        }
 
+        private void MenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            onMenuButtonChange(1);
+        }
     }
 
     public class Bubble
