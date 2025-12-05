@@ -78,6 +78,9 @@
                             <ControlTemplate TargetType="Button">
                                 <Grid Width="50" Height="50">
                                     <Path x:Name="BackgroundPath">
+                                        <Path.Fill>
+                                            <SolidColorBrush Color="#7FDEFF" />
+                                        </Path.Fill>
                                         <Path.Data>
                                             <RectangleGeometry
                                                 RadiusX="8"
@@ -99,74 +102,23 @@
                                         StrokeThickness="2" />
                                 </Grid>
 
-
-
                                 <ControlTemplate.Triggers>
-                                    <!--  Плавное изменение цвета при наведении  -->
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Trigger.EnterActions>
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation
-                                                        Storyboard.TargetName="BackgroundPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
-                                                        To="#5A4F9D"
-                                                        Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </Trigger.EnterActions>
-                                        <Trigger.ExitActions>
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation
-                                                        Storyboard.TargetName="BackgroundPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
-                                                        To="#7066B1"
-                                                        Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </Trigger.ExitActions>
+                                    <!--  Цвет для активной кнопки  -->
+                                    <Trigger Property="IsEnabled" Value="True">
+                                        <Setter TargetName="BackgroundPath" Property="Fill" Value="#7066B1" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="BackgroundPath" Property="Fill" Value="#7FDEFF" />
                                     </Trigger>
 
-                                    <!--  Цвет при нажатии  -->
+
+
+                                    <!--  Цвет при нажатии (только для активных кнопок)  -->
                                     <Trigger Property="IsPressed" Value="True">
                                         <Setter TargetName="BackgroundPath" Property="Fill" Value="#4A407F" />
                                     </Trigger>
 
-                                    <Trigger Property="IsEnabled" Value="False">
-                                        <Setter TargetName="BackgroundPath" Property="Fill" Value="#7FDEFF"></Setter>
-                                    </Trigger>
-                                    <Trigger Property="IsEnabled" Value="True">
-                                        <Setter TargetName="BackgroundPath" Property="Fill" Value="#7066B1"></Setter>
-                                    </Trigger>
-
-                                    <!--  Ripple запускаем один раз по клику  -->
-                                    <EventTrigger RoutedEvent="Button.Click">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation
-                                                    AccelerationRatio="0.3"
-                                                    Storyboard.TargetName="Ripple"
-                                                    Storyboard.TargetProperty="Width"
-                                                    From="0"
-                                                    To="150"
-                                                    Duration="0:0:0.3" />
-                                                <DoubleAnimation
-                                                    AccelerationRatio="0.3"
-                                                    Storyboard.TargetName="Ripple"
-                                                    Storyboard.TargetProperty="Height"
-                                                    From="0"
-                                                    To="150"
-                                                    Duration="0:0:0.3" />
-                                                <DoubleAnimation
-                                                    Storyboard.TargetName="Ripple"
-                                                    Storyboard.TargetProperty="Opacity"
-                                                    From="0.4"
-                                                    To="0"
-                                                    Duration="0:0:0.3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
+                                    
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </Button.Template>
@@ -191,7 +143,7 @@
                                     <!--  Фон кнопки  -->
                                     <Path x:Name="BackgroundPath">
                                         <Path.Fill>
-                                            <SolidColorBrush Color="#7066B1" />
+                                            <SolidColorBrush Color="#7FDEFF" />
                                         </Path.Fill>
                                         <Path.Data>
                                             <RectangleGeometry
@@ -215,66 +167,23 @@
                                     <Path Data="M15,15 L35,15 L34.0349,28.5111 C34.0129,28.8195 33.8494,29.1004 33.5922,29.2719 L25,35 L16.4078,29.2719 C16.1506,29.1004 15.9871,28.8195 15.9651,28.5111 L15,15 Z" Fill="White" />
                                 </Grid>
 
-                                <!--  Триггеры  -->
                                 <ControlTemplate.Triggers>
-                                    <!--  Плавное изменение цвета при наведении  -->
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Trigger.EnterActions>
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation
-                                                        Storyboard.TargetName="BackgroundPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
-                                                        To="#5A4F9D"
-                                                        Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </Trigger.EnterActions>
-                                        <Trigger.ExitActions>
-                                            <BeginStoryboard>
-                                                <Storyboard>
-                                                    <ColorAnimation
-                                                        Storyboard.TargetName="BackgroundPath"
-                                                        Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
-                                                        To="#7066B1"
-                                                        Duration="0:0:0.2" />
-                                                </Storyboard>
-                                            </BeginStoryboard>
-                                        </Trigger.ExitActions>
+                                    <!--  Цвет для активной кнопки  -->
+                                    <Trigger Property="IsEnabled" Value="True">
+                                        <Setter TargetName="BackgroundPath" Property="Fill" Value="#7066B1" />
+                                    </Trigger>
+                                    <Trigger Property="IsEnabled" Value="False">
+                                        <Setter TargetName="BackgroundPath" Property="Fill" Value="#7FDEFF" />
                                     </Trigger>
 
-                                    <!--  Цвет при нажатии  -->
+
+
+                                    <!--  Цвет при нажатии (только для активных кнопок)  -->
                                     <Trigger Property="IsPressed" Value="True">
                                         <Setter TargetName="BackgroundPath" Property="Fill" Value="#4A407F" />
                                     </Trigger>
 
-                                    <!--  Ripple запускаем один раз по клику  -->
-                                    <EventTrigger RoutedEvent="Button.Click">
-                                        <BeginStoryboard>
-                                            <Storyboard>
-                                                <DoubleAnimation
-                                                    AccelerationRatio="0.3"
-                                                    Storyboard.TargetName="Ripple"
-                                                    Storyboard.TargetProperty="Width"
-                                                    From="0"
-                                                    To="150"
-                                                    Duration="0:0:0.3" />
-                                                <DoubleAnimation
-                                                    AccelerationRatio="0.3"
-                                                    Storyboard.TargetName="Ripple"
-                                                    Storyboard.TargetProperty="Height"
-                                                    From="0"
-                                                    To="150"
-                                                    Duration="0:0:0.3" />
-                                                <DoubleAnimation
-                                                    Storyboard.TargetName="Ripple"
-                                                    Storyboard.TargetProperty="Opacity"
-                                                    From="0.4"
-                                                    To="0"
-                                                    Duration="0:0:0.3" />
-                                            </Storyboard>
-                                        </BeginStoryboard>
-                                    </EventTrigger>
+
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </Button.Template>
@@ -741,8 +650,8 @@
                         Content="Доп. 2" />
                 </StackPanel>
             </Grid>
-            
-           <!-- Слой защиты -->
+
+            <!--  Слой защиты  -->
             <Grid
                 x:Name="SafeGrid"
                 Grid.Column="2"

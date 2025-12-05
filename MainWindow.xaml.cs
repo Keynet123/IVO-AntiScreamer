@@ -326,7 +326,20 @@ namespace IVOAntiScreamer
         {
             if (bitmap == null) return;
 
-            DrawMetaballsOptimized(canvas, bitmap);
+            DrawBubblesSimple(canvas);
+        }
+
+        private void DrawBubblesSimple(SKCanvas canvas)
+        {
+            using var paint = new SKPaint
+            {
+                IsAntialias = true,
+                Style = SKPaintStyle.Fill,
+                Color = new SKColor(0, 200, 10, 80) // прозрачный зелёный
+            };
+
+            foreach (var b in bubbles)
+                canvas.DrawCircle(b.X, b.Y, b.Radius, paint);
         }
 
         private void DrawMetaballsOptimized(SKCanvas canvas, SKBitmap target)
