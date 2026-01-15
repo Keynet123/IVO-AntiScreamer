@@ -8,6 +8,7 @@
 
 ## rev.-1
 <img width="839" height="564" alt="image" src="https://github.com/user-attachments/assets/cc778f9c-d628-47fa-ba7c-4a91525fca64" />
+
 (именно отсюда началась данная программа)
 
 ---
