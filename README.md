@@ -6,11 +6,10 @@
 ## rev.1
 <img width="1522" height="953" alt="rev.1 Скриншот программы" src="https://github.com/user-attachments/assets/4c50e0b7-ce06-4399-a8e3-70949d58b3cf" />
 
-
 ## rev.-1
 <img width="839" height="564" alt="image" src="https://github.com/user-attachments/assets/cc778f9c-d628-47fa-ba7c-4a91525fca64" />
-
 (именно отсюда началась данная программа)
+
 ---
 
 ## 🤔 О программе
