@@ -8,7 +8,7 @@
     MinHeight="500"
     Background="#2C2A4A"
     Loaded="Window_Loaded"
-    ResizeMode="CanResize"
+    ResizeMode="CanResizeWithGrip"
     SizeChanged="Window_SizeChanged"
     SizeToContent="Manual"
     WindowStartupLocation="CenterScreen">
@@ -72,6 +72,7 @@
                         BorderBrush="Transparent"
                         BorderThickness="0"
                         Click="MenuButton_Click"
+                        Cursor="Hand"
                         IsEnabled="False">
 
                         <Button.Template>
@@ -97,7 +98,7 @@
                                         Fill="White"
                                         Opacity="0" />
                                     <Path
-                                        Data="M15,34 L35,34 M34,34 L34,22 M34.4265,22.8192 L24.4265,15.8192 M15,34 L15,22 M15,22 L24.8192,15.5735"
+                                        Data="M14,34 L35,34   M34,34 L34,22   M34.4265,22.8192 L24.4265,15.8192   M15,34 L15,22   M14.4625,23 L25.8192,15.5735"
                                         Stroke="White"
                                         StrokeThickness="2" />
                                 </Grid>
@@ -118,7 +119,7 @@
                                         <Setter TargetName="BackgroundPath" Property="Fill" Value="#4A407F" />
                                     </Trigger>
 
-                                    
+
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </Button.Template>
@@ -211,10 +212,24 @@
                                                 Rect="0,0,50,50" />
                                         </Path.Data>
                                     </Path>
+
+                                    <!--  Вся иконка как один Path с исправленными дугами  -->
                                     <Path
-                                        Data="M15,34 L35,34 M34,34 L34,22 M34.4265,22.8192 L24.4265,15.8192 M15,34 L15,22 M15,22 L24.8192,15.5735"
+                                        Data="M13,24.5 A11.5,11.5 0 1,1 36,24.5 A11.5,11.5 0 1,1 13,24.5                  M24.5904,25.7133 L31.5904,15.7133                 M24.5,31 A6.5,6.5 0 0,1 24.5,18                 M24.5,33 A8.5,8.5 0 0,1 24.5,16"
+                                        Fill="Transparent"
                                         Stroke="White"
-                                        StrokeThickness="2" />
+                                        StrokeThickness="1">
+                                        <Path.Resources />
+                                    </Path>
+
+                                    <!--  Центральная точка отдельно  -->
+                                    <Ellipse
+                                        Width="2"
+                                        Height="2"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Fill="White" />
+
                                     <Ellipse
                                         x:Name="Ripple"
                                         Width="0"
@@ -311,10 +326,67 @@
                                                 Rect="0,0,50,50" />
                                         </Path.Data>
                                     </Path>
+
+                                    <!--  Все элементы иконки настроек  -->
+                                    <!--  Центральный круг  -->
+                                    <Ellipse
+                                        Width="19"
+                                        Height="19"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Fill="#7066B1"
+                                        Stroke="White"
+                                        StrokeThickness="3" />
+
+                                    <!--  Диагональные кресты  -->
                                     <Path
-                                        Data="M15,34 L35,34 M34,34 L34,22 M34.4265,22.8192 L24.4265,15.8192 M15,34 L15,22 M15,22 L24.8192,15.5735"
+                                        Data="M33.7071,16.7071 L16.7071,33.7071"
+                                        Stroke="White"
+                                        StrokeThickness="3" />
+
+                                    <Path
+                                        Data="M16.7071,16.2929 L33.7071,33.2929"
+                                        Stroke="White"
+                                        StrokeThickness="3" />
+
+                                    <!--  Верхний/нижний рычаги  -->
+                                    <Rectangle
+                                        Width="3"
+                                        Height="3"
+                                        Margin="0,13,0,0"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
                                         Stroke="White"
                                         StrokeThickness="2" />
+
+                                    <Rectangle
+                                        Width="3"
+                                        Height="3"
+                                        Margin="0,0,0,13"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom"
+                                        Stroke="White"
+                                        StrokeThickness="2" />
+
+                                    <!--  Левый/правый рычаги  -->
+                                    <Rectangle
+                                        Width="3"
+                                        Height="3"
+                                        Margin="13,0,0,0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Stroke="White"
+                                        StrokeThickness="2" />
+
+                                    <Rectangle
+                                        Width="3"
+                                        Height="3"
+                                        Margin="0,0,13,0"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        Stroke="White"
+                                        StrokeThickness="2" />
+
                                     <Ellipse
                                         x:Name="Ripple"
                                         Width="0"

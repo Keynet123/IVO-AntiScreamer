@@ -28,7 +28,8 @@ namespace IVOAntiScreamer
         [DllImport("ntdll.dll", SetLastError = true)]
         static extern int NtResumeProcess(IntPtr processHandle);
 
-        private const double AspectRatio = 16.0 / 10.0;
+        private const double AspectRatio = 16.0 / 10.0; // 1.6
+        private bool _isResizing = false;
 
         // ПУЗЫРеке
 
